@@ -1,0 +1,11 @@
+.heading{
+    text-align:left;
+    width:100%;
+}
+.heading button{
+    border: 1px yellow ridge;
+    float:right;
+}
+.heading h3{
+    display: inline;
+}
