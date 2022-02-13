@@ -9,3 +9,8 @@
 .heading h3{
     display: inline;
 }
+
+canvas{
+    border-radius: 5%;
+    box-shadow: 10 10 turquoise;
+}
