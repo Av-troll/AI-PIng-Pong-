@@ -8,7 +8,9 @@ var paddle2Y = 685,paddle2Height = 70;
 
 var score1 = 0, score2 =0;
 var paddle1Y;
-
+var rightWristX = 0;
+var rightWristY = 0;
+var score = 0;
 var  playerscore =0;
 var audio1;
 var pcscore =0;
@@ -36,10 +38,28 @@ function modelLoaded(){
   console.log("Model Loaded");
 }
 
-function draw(){
-image(video,700,600)
- background(0); 
+function gotPoses(results){
+  if(results.length > 0){
+    console.log(results);
+     
+    rightWristX = results[0].pose.rightWrist.x;
+    rightWristY = results[0].pose.rightWrist.y;
+    score = results[0].pose.rightWrist.confidence;
 
+  }
+}
+
+function draw(){
+ background(0);
+  if(score >= 0.2){
+ var r = random(255);
+ var g = random(255);
+ var b = random(255);
+ 
+ fill(r,g,b);
+ stroke(r,g,b);
+ circle(rightWristX,rightWristY,20);
+  }
  fill("black");
  stroke("black");
  rect(680,0,20,700);
